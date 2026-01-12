@@ -32,7 +32,7 @@ CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
 
 ### Step 3: Build app1 Image
 ```bash
-docker build -t app .
+docker build -t app1 .
 ```
 
 ### Step 4: Run container1 from app1 Image
@@ -58,4 +58,4 @@ docker rm container1
 
 
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek** 
