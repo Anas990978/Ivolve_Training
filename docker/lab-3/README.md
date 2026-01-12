@@ -52,10 +52,11 @@ docker rm container1
 ```
 
 ## Expected Output
-- Docker image builds successfully
-- Container runs on port 8080
-- Application responds to HTTP requests
-- Container stops and removes cleanly
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ddd8a69b-0424-41f3-95d7-936b4253f9fc" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e9b45e19-2981-4dd5-b019-4fcf5f3a827b" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e57bc57a-2429-422f-b0ac-7d9a036983de" />
+
+
 
 ## Author
 **Anas** - iVolve Training Labs
