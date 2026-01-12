@@ -17,22 +17,22 @@ cd Docker-1
 
 ### Step 2: Write Dockerfile
 ```dockerfile
-FROM maven:3.8.6-openjdk-17
+FROM maven:3.9.6-eclipse-temurin-17
 
-WORKDIR /app
+WORKDIR /lab3
 
-COPY . .
+COPY ./Docker-1 .
 
-RUN mvn package
-
-CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
+RUN mvn package 
 
 EXPOSE 8080
+
+CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
 ```
 
 ### Step 3: Build app1 Image
 ```bash
-docker build -t app1 .
+docker build -t app .
 ```
 
 ### Step 4: Run container1 from app1 Image
