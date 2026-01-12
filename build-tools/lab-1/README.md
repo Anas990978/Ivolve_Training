@@ -1,48 +1,49 @@
-# Lab 1 — Building and Testing a Java Application with Gradle
+# Lab 1: Building and Packaging Java Applications with Gradle
 
 ## Objective
-Build, test and run a Java application using Gradle build tool.
+Install Gradle, clone source code, run unit tests, build and run a Java application.
 
 ## Prerequisites
 - Linux/WSL environment
 - Java 17 installed
-- Gradle (or use the wrapper)
 
 ## Lab Steps
 
-### Step 1: Navigate to Project Directory
+### Step 1: Install Gradle
 ```bash
-cd build-tools/lab-1/build1
+sudo apt update
+sudo apt install gradle
 ```
 
-### Step 2: Build the Application
+### Step 2: Clone Source Code
 ```bash
-./gradlew clean build
-```
-*Or if gradlew is not available:*
-```bash
-gradle clean build
+git clone https://github.com/Ibrahim-Adel15/build1.git
+cd build1
 ```
 
-### Step 3: Run Tests
+### Step 3: Run Unit Tests
 ```bash
-./gradlew test
+gradle test
 ```
 
-### Step 4: Run the Application
+### Step 4: Build Application
 ```bash
-java -jar build/libs/*.jar
+gradle build
 ```
+*This generates artifact: `build/libs/ivolve-app.jar`*
+
+### Step 5: Run Application
+```bash
+java -jar build/libs/ivolve-app.jar
+```
+
+### Step 6: Verify Application
+Check that the application starts successfully and produces expected output.
 
 ## Expected Output
-- Successful build with no errors
-- All tests pass
-- Application runs and displays output
-
-## Notes
-- The Gradle wrapper (`./gradlew`) is preferred as it ensures consistent Gradle version
-- Build artifacts are generated in the `build/` directory
-- Test reports are available in `build/reports/tests/`
+- Unit tests pass
+- Build generates `build/libs/ivolve-app.jar`
+- Application runs without errors
 
 ## Author
 **Anas** - iVolve Training Labs

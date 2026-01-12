@@ -1,51 +1,49 @@
-# Lab 2 — Building and Testing a Java Application with Maven
+# Lab 2: Building and Packaging Java Applications with Maven
 
 ## Objective
-Build, test and run a Java application using Maven build tool.
+Install Maven, clone source code, run unit tests, build and run a Java application.
 
 ## Prerequisites
 - Linux/WSL environment
 - Java 17 installed
-- Maven installed
 
 ## Lab Steps
 
-### Step 1: Navigate to Project Directory
+### Step 1: Install Maven
 ```bash
-cd build-tools/lab-2/build2
+sudo apt update
+sudo apt install maven
 ```
 
-### Step 2: Build and Package the Application
+### Step 2: Clone Source Code
 ```bash
-mvn clean package
+git clone https://github.com/Ibrahim-Adel15/build2.git
+cd build2
 ```
 
-### Step 3: Run Tests
+### Step 3: Run Unit Tests
 ```bash
 mvn test
 ```
 
-### Step 4: Run the Application
+### Step 4: Build Application
 ```bash
-java -jar target/*.jar
+mvn package
+```
+*This generates artifact: `target/hello-ivolve-1.0-SNAPSHOT.jar`*
+
+### Step 5: Run Application
+```bash
+java -jar target/hello-ivolve-1.0-SNAPSHOT.jar
 ```
 
-## Alternative: Using Docker
-If you prefer to run Maven in a container:
-```bash
-docker run --rm -v "$PWD":/workspace -w /workspace maven:3.8.6-openjdk-17 mvn clean package
-```
+### Step 6: Verify Application
+Check that the application starts successfully and produces expected output.
 
 ## Expected Output
-- Successful build with no errors
-- All tests pass
-- JAR file created in `target/` directory
-- Application runs and displays output
-
-## Notes
-- Build artifacts are generated in the `target/` directory
-- Test reports are available in `target/surefire-reports/`
-- The `pom.xml` file contains project configuration and dependencies
+- Unit tests pass
+- Build generates `target/hello-ivolve-1.0-SNAPSHOT.jar`
+- Application runs without errors
 
 ## Author
 **Anas** - iVolve Training Labs
