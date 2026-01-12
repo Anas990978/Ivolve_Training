@@ -37,13 +37,10 @@ gradle build
 java -jar build/libs/ivolve-app.jar
 ```
 
-### Step 6: Verify Application
-Check that the application starts successfully and produces expected output.
 
 ## Expected Output
-- Unit tests pass
-- Build generates `build/libs/ivolve-app.jar`
-- Application runs without errors
+<img width="1361" height="425" alt="image" src="https://github.com/user-attachments/assets/7324f6fb-6c13-4725-9f0e-a04a5555320f" />
+
 
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek** 
