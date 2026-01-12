@@ -41,9 +41,9 @@ java -jar target/hello-ivolve-1.0-SNAPSHOT.jar
 Check that the application starts successfully and produces expected output.
 
 ## Expected Output
-- Unit tests pass
-- Build generates `target/hello-ivolve-1.0-SNAPSHOT.jar`
-- Application runs without errors
+<img width="1411" height="760" alt="image" src="https://github.com/user-attachments/assets/0a3e99ae-9813-4200-b7ec-bb724a75eff0" />
+<img width="1369" height="697" alt="image" src="https://github.com/user-attachments/assets/46b8c7ea-ac18-43bd-8250-03263695deef" />
+
 
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek** 
