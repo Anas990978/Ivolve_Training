@@ -52,15 +52,10 @@ docker rm container3
 ```
 
 ## Expected Output
-- Multi-stage build creates optimized image
-- Container runs on port 8088
-- Application responds to HTTP requests
-- Smaller final image size due to JRE-only runtime
+<img width="1354" height="719" alt="image" src="https://github.com/user-attachments/assets/57242a4f-b6bc-4171-ac81-b20b8d50d624" />
+<img width="1204" height="383" alt="image" src="https://github.com/user-attachments/assets/d61e7e19-3770-4655-8a33-34dc97440223" />
+<img width="1356" height="229" alt="image" src="https://github.com/user-attachments/assets/b60c1887-7e5e-4860-bcb3-22dcd16df802" />
 
-## Notes
-- Multi-stage build separates build and runtime environments
-- Final image only contains JRE and application JAR
-- Significantly smaller image size compared to single-stage builds
 
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek** 
