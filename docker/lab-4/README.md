@@ -23,7 +23,7 @@ cd Docker-1
 mvn package
 ```
 
-### Step 3: Create Optimized Dockerfile
+### Step 3: Create Dockerfile
 ```dockerfile
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /lab4
@@ -54,15 +54,12 @@ docker rm container2
 ```
 
 ## Expected Output
-- Maven build creates `target/demo-0.0.1-SNAPSHOT.jar`
-- Docker image builds successfully with optimized JRE base
-- Container runs on port 8088
-- Application responds to HTTP requests
+<img width="1345" height="186" alt="image" src="https://github.com/user-attachments/assets/c2de056e-b4c0-433f-893c-84c6ddd272a2" />
+<img width="1369" height="701" alt="image" src="https://github.com/user-attachments/assets/3994a387-dcf3-4157-90e3-ae75a90e7e12" />
+<img width="1363" height="372" alt="image" src="https://github.com/user-attachments/assets/c9f1e6e4-b33f-48c1-a619-832437d93758" />
 
-## Notes
-- Uses JRE instead of JDK for smaller image size
-- Application accessible on `http://localhost:8088`
-- Alpine Linux base for minimal footprint
+
+
 
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek** 
