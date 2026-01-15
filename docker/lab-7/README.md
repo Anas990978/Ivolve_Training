@@ -34,6 +34,7 @@ echo "Hello from Bind Mount" > nginx-bind/html/index.html
 ### Step 5: Verify HTML File
 ```bash
 cat nginx-bind/html/index.html
+Hello from Bind Mount
 ```
 
 ### Step 6: Run Nginx Container with Volume and Bind Mount
@@ -52,6 +53,11 @@ curl http://localhost:8093
 ### Step 8: Access Container Shell
 ```bash
 docker exec -it nginx-container sh
+/ # cd ls usr/share/nginx/html/
+/usr/share/nginx/html/ cat index.html
+Hello from Bind Mount
+/usr/share/nginx/html # echo "hi from nti" > index.html
+
 ```
 
 ### Step 9: Clean Up
@@ -62,16 +68,6 @@ docker volume rm nginx_logs
 ```
 
 ## Expected Output
-- Volume `nginx_logs` created successfully
-- Nginx serves custom HTML from bind mount
-- `curl` returns: "Hello from Bind Mount"
-- Container logs stored in named volume
-
-## Notes
-- **Named Volume**: `nginx_logs` stores Nginx logs persistently
-- **Bind Mount**: Local directory mounted to serve custom HTML
-- Nginx Alpine runs on port 80 by default
-- Use `sh` instead of `bash` for Alpine containers
 
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek** 
