@@ -1,0 +1,95 @@
+# Lab 6: Docker Environment Variables
+
+## Objective
+Build and run Python Flask application with different environment variable configurations.
+
+## Prerequisites
+- Linux/WSL environment
+- Docker installed and running
+
+## Lab Steps
+
+### Step 1: Create Lab Directory and Clone Application
+```bash
+mkdir lab-6
+cd lab-6
+git clone https://github.com/Ibrahim-Adel15/Docker-3.git
+cd Docker-3
+```
+
+### Step 2: Create Dockerfile
+```dockerfile
+FROM python:3.15.0a3-alpine3.23
+WORKDIR /lab6
+COPY . .
+RUN pip install flask
+EXPOSE 8080
+CMD ["python","app.py"]
+```
+
+### Step 3: Build image1
+```bash
+docker build -t image1 .
+```
+
+### Step 4: Run container1 with Environment Variables
+```bash
+docker run -d --name container1 -p 8090:8080 -e APP_MODE=development -e APP_REGION=us-east image1:latest
+```
+
+### Step 5: Create Environment File
+Create `env` file:
+```
+APP_MODE=staging
+APP_REGION=us-west
+```
+
+### Step 6: Run container2 with Environment File
+```bash
+docker run -d --name container2 -p 8091:8080 --env-file env image1:latest
+```
+
+### Step 7: Create Dockerfile2 with Default ENV
+```dockerfile
+FROM python:3.15.0a3-alpine3.23
+WORKDIR /lab6
+COPY . .
+ENV APP_MODE=prod  APP_REGION=canada-west
+RUN pip install flask
+EXPOSE 8080
+CMD ["python","app.py"]
+```
+
+### Step 8: Build image2 and Run container3
+```bash
+docker build -f Dockerfile2 -t image2 .
+docker run -d --name container3 -p 8092:8080 image2:latest
+```
+
+### Step 9: Test All Containers
+```bash
+curl http://localhost:8090
+curl http://localhost:8091
+curl http://localhost:8092
+```
+
+### Step 10: Clean Up
+```bash
+docker stop container1 container2 container3
+docker rm container1 container2 container3
+```
+
+## Expected Output
+- **container1**: App mode: development, Region: us-east
+- **container2**: App mode: staging, Region: us-west
+- **container3**: App mode: prod, Region: canada-west
+
+## Notes
+- Three methods to set environment variables:
+  1. `-e` flag for individual variables
+  2. `--env-file` for multiple variables from file
+  3. `ENV` in Dockerfile for default values
+- Runtime variables override Dockerfile ENV values
+
+## Author
+**Anas** - iVolve Training Labs
