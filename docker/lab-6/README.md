@@ -73,23 +73,8 @@ curl http://localhost:8091
 curl http://localhost:8092
 ```
 
-### Step 10: Clean Up
-```bash
-docker stop container1 container2 container3
-docker rm container1 container2 container3
-```
-
 ## Expected Output
-- **container1**: App mode: development, Region: us-east
-- **container2**: App mode: staging, Region: us-west
-- **container3**: App mode: prod, Region: canada-west
-
-## Notes
-- Three methods to set environment variables:
-  1. `-e` flag for individual variables
-  2. `--env-file` for multiple variables from file
-  3. `ENV` in Dockerfile for default values
-- Runtime variables override Dockerfile ENV values
+![alt text](image.png)
 
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek** 
