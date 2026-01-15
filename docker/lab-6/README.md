@@ -74,7 +74,8 @@ curl http://localhost:8092
 ```
 
 ## Expected Output
-![alt text](image.png)
+<img width="1359" height="514" alt="image" src="https://github.com/user-attachments/assets/6c4d07d4-65d6-4142-9dd2-9a4a19c08acb" />
+
 
 ## Author
 **Anas Tarek** 
