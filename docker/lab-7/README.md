@@ -48,6 +48,8 @@ docker run -d --name nginx-container -p 8093:80 \
 ### Step 7: Test Nginx Server
 ```bash
 curl http://localhost:8093
+Hello from Bind Mount
+
 ```
 
 ### Step 8: Access Container Shell
@@ -60,14 +62,19 @@ Hello from Bind Mount
 
 ```
 
-### Step 9: Clean Up
+### Step 9: Verify logs are stored in the nginx_logs volume.
 ```bash
+sudo ls /var/lib/docker/volumes/nginx_logs/_data
 docker stop nginx-container
 docker rm nginx-container
 docker volume rm nginx_logs
 ```
 
 ## Expected Output
+<img width="1370" height="572" alt="image" src="https://github.com/user-attachments/assets/8c1b5768-c134-4943-9fa9-b792ce2c9c98" />
+<img width="1273" height="320" alt="image" src="https://github.com/user-attachments/assets/72dc5191-971b-489f-b57d-0ccedec1ad2c" />
+<img width="1366" height="706" alt="image" src="https://github.com/user-attachments/assets/cb6bd4a4-d709-4e72-bf67-e89c84e8cb4e" />
+<img width="1365" height="711" alt="image" src="https://github.com/user-attachments/assets/15df26e3-d57d-4cef-8daf-16042ca20331" />
 
 ## Author
 **Anas Tarek** 
