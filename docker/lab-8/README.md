@@ -1,94 +1,126 @@
-# Lab 8: Docker Networking - Multi-Container Application
+# Lab 8: Custom Docker Network for Microservices
 
 ## Objective
-Create a custom Docker network and demonstrate container communication between frontend and backend services.
+Create custom Docker network and verify container communication between frontend and backend microservices.
 
-## Steps
+## Prerequisites
+- Linux/WSL environment
+- Docker installed and running
 
-### 1. Clone the Repository
+## Lab Steps
+
+### Step 1: Create Lab Directory
 ```bash
+mkdir lab-8
 cd lab-8
+```
+
+### Step 2: Clone Repository
+```bash
 git clone https://github.com/Ibrahim-Adel15/Docker5.git
 cd Docker5
 ```
 
-### 2. Build Frontend Image
+### Step 3: Create Dockerfile for Frontend
 ```bash
-cd frontend
+FROM python:3.9-slim
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+EXPOSE 5000
+CMD ["python", "app.py"]
+```
+
+### Step 4: Create Dockerfile for Backend
+```bash
+FROM python:3.9-slim
+WORKDIR /app
+COPY . .
+RUN pip install flask
+EXPOSE 5000
+CMD ["python", "app.py"]
+```
+
+### Step 5: Build Frontend Image
+```bash
 docker build -t front-image .
-cd ..
 ```
 
-### 3. Build Backend Image
+### Step 6: Build Backend Image
 ```bash
-cd backend
 docker build -t back-image .
-cd ..
 ```
 
-### 4. Create Custom Docker Network
+### Step 7: Create Custom Network
 ```bash
 docker network create ivolve-network
 ```
 
-### 5. Verify Network Creation
+### Step 8: Verify Network Creation
 ```bash
 docker network ls
 ```
 
-### 6. Run Backend Container on Custom Network
+### Step 9: Run Backend Container
 ```bash
-docker run -d --name back-container --network ivolve-network -p 5002:5000 back-image:latest
+docker run -d --name back-container --network ivolve-network -p 5002:5000 back-image
 ```
 
-### 7. Run Frontend Container on Custom Network
+### Step 10: Run Frontend Container (frontend1) on Custom Network
 ```bash
-docker run -d --name front-container --network ivolve-network -p 5001:5000 front-image:latest
+docker run -d --name front-container --network ivolve-network -p 5001:5000 front-image
 ```
 
-### 8. Run Frontend Container on Default Network
+### Step 11: Run Frontend Container (frontend2) on Default Network
 ```bash
-docker run -d --name front-container2 -p 5003:5000 front-image:latest
+docker run -d --name front-container2 -p 5003:5000 front-image
 ```
 
-### 9. Verify Containers are Running
+### Step 12: Verify Containers are Running
 ```bash
 docker ps
 ```
+### Step 13: Test Communication - Frontend1 to Backend (Should Work)
+```bash
+docker -it exec front-container bash
+ping -c 3 back-container
+```
 
-### 10. Inspect Custom Network
+### Step 14: Test Communication - Frontend2 to Backend (Should Fail)
+```bash
+docker -it exec front-container2 bash
+ping -c 3 back-container
+```
+
+### Step 15: Inspect Network
 ```bash
 docker network inspect ivolve-network
 ```
 
-### 11. Test Communication from Frontend to Backend
+### Step 16: Stop All Containers
 ```bash
-docker exec front-container curl http://back-container:5000
+docker stop back-container front-container front-container2
 ```
 
-### 12. Access Frontend Container Shell
+### Step 17: Remove All Containers
 ```bash
-docker exec -it front-container bash
+docker rm back-container front-container front-container2
 ```
 
-## Expected Results
-- **front-container** (on ivolve-network): Can ping back-container successfully ✓
-- **front-container2** (on default network): Cannot ping back-container (unknown host) ✗
-- Custom networks provide automatic DNS resolution between containers
-- Default bridge network doesn't provide automatic DNS resolution
-
-- **front-container** (on ivolve-network): Successfully communicates with back-container ✓
-- **front-container2** (on default network): Cannot resolve back-container hostname ✗
-- Custom networks provide automatic DNS resolution between containers
-- Default bridge network doesn't support DNS resolution by container name
-
-## Cleanup
-
+### Step 18: Delete Custom Network
 ```bash
-docker stop front-container back-container front-container2
-docker rm front-container back-container front-container2
 docker network rm ivolve-network
 ```
 
+### Step 19: Verify Network Deletion
+```bash
+docker network ls
+```
+
+## Expected Results
+
+
+
+
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek**
