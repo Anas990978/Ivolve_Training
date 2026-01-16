@@ -118,9 +118,12 @@ docker network ls
 ```
 
 ## Expected Results
-
-
-
+<img width="958" height="539" alt="image" src="https://github.com/user-attachments/assets/f0f61927-f84f-4c7f-8e6a-bd2c08aa0437" />
+<img width="1363" height="521" alt="image" src="https://github.com/user-attachments/assets/bdd52cce-464a-4d1b-9b11-23b0748e54ff" />
+<img width="1365" height="672" alt="image" src="https://github.com/user-attachments/assets/66ef5ea6-030b-4dc3-98a6-969aa54815a8" />
+<img width="975" height="197" alt="image" src="https://github.com/user-attachments/assets/9e8877e6-f9ea-407b-ab72-f3c27b407656" />
+<img width="1360" height="83" alt="image" src="https://github.com/user-attachments/assets/623d45d9-3067-43e9-bc96-571fa9cae3cd" />
+<img width="1360" height="83" alt="image" src="https://github.com/user-attachments/assets/c3de28b7-ce91-4fc7-a533-7c8e5e56756f" />
 
 ## Author
 **Anas Tarek**
