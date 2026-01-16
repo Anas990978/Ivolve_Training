@@ -117,33 +117,21 @@ docker tag kubernets-app-app:latest anas587/kubernets-app-app:latest
 docker push anas587/kubernets-app-app:latest
 ```
 
-### Step 15: Verify Database Connection
-```bash
-docker-compose exec db mysql -uroot -ppass123 -e "SHOW DATABASES;"
-```
 
-### Step 16: Stop Services
-```bash
-docker-compose down
-```
-
-### Step 17: Remove Volumes (Optional)
+### Step 15: Remove Volumes (Optional)
 ```bash
 docker-compose down -v
 ```
 
 ## Expected Results
-- App accessible at http://localhost:3001
-- Health endpoint returns status message
-- Ready endpoint returns status message
-- Access logs available at /app/logs/access.log
-- Image successfully pushed to DockerHub: anas587/kubernets-app-app:latest
+<img width="1365" height="703" alt="image" src="https://github.com/user-attachments/assets/09e577b1-60f8-411c-b1a8-1622f2bcdbc5" />
+<img width="1355" height="149" alt="image" src="https://github.com/user-attachments/assets/48f4d343-29c9-42f1-b737-161439b0e60c" />
+<img width="1367" height="603" alt="image" src="https://github.com/user-attachments/assets/d192f544-e876-49d9-b92d-9dd511e3130d" />
+<img width="1363" height="687" alt="image" src="https://github.com/user-attachments/assets/380f3490-ee3b-44d3-9226-61da6024e197" />
+<img width="1367" height="436" alt="image" src="https://github.com/user-attachments/assets/60310f4f-6323-4b67-bb50-1bf44f040bde" />
+<img width="1370" height="274" alt="image" src="https://github.com/user-attachments/assets/67e412a4-c78d-4272-8cbd-99e97d8ef5d6" />
+<img width="1366" height="173" alt="image" src="https://github.com/user-attachments/assets/3308bac2-0b0a-4280-9eb5-dd3973ab796d" />
 
-## Notes
-- The app is mapped to port 3001 on the host (not 3000)
-- MySQL database 'ivolve' is automatically created
-- Application logs are stored in /app/logs/ directory inside the container
-- db_data volume persists MySQL data
 
 ## Author
 **Anas Tarek**
