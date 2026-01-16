@@ -72,6 +72,10 @@ docker exec -it front-container bash
 ```
 
 ## Expected Results
+- **front-container** (on ivolve-network): Can ping back-container successfully ✓
+- **front-container2** (on default network): Cannot ping back-container (unknown host) ✗
+- Custom networks provide automatic DNS resolution between containers
+- Default bridge network doesn't provide automatic DNS resolution
 
 - **front-container** (on ivolve-network): Successfully communicates with back-container ✓
 - **front-container2** (on default network): Cannot resolve back-container hostname ✗
