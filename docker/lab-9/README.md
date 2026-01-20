@@ -117,7 +117,6 @@ docker tag kubernets-app-app:latest anas587/kubernets-app-app:latest
 docker push anas587/kubernets-app-app:latest
 ```
 
-
 ### Step 15: Remove Volumes (Optional)
 ```bash
 docker-compose down -v
@@ -131,7 +130,6 @@ docker-compose down -v
 <img width="1367" height="436" alt="image" src="https://github.com/user-attachments/assets/60310f4f-6323-4b67-bb50-1bf44f040bde" />
 <img width="1370" height="274" alt="image" src="https://github.com/user-attachments/assets/67e412a4-c78d-4272-8cbd-99e97d8ef5d6" />
 <img width="1366" height="173" alt="image" src="https://github.com/user-attachments/assets/3308bac2-0b0a-4280-9eb5-dd3973ab796d" />
-
 
 ## Author
 **Anas Tarek**
