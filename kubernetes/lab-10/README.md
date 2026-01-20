@@ -31,12 +31,7 @@ kubectl describe nodes minikube | grep Taints
 ```
 
 ## Expected Results
-- Node `minikube` has taint `node=worker:NoSchedule` applied
-- Pods without toleration cannot be scheduled on tainted node
-
-## Notes
-- Taints prevent pods from being scheduled on nodes unless they have matching tolerations
-- NoSchedule taint prevents new pods from being scheduled but doesn't affect existing pods
+<img width="1158" height="274" alt="image" src="https://github.com/user-attachments/assets/7b129ac1-4fe4-4051-8ca3-9bdaa458f3bf" />
 
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek** 
