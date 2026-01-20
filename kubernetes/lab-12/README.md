@@ -29,7 +29,7 @@ metadata:
   name: mysql-config
   namespace: ivolve
 data:
-  MYSQL_DATABASE: "ivolve"
+  MYSQL_DATABASE: "mysql"
   MYSQL_USER: "anas123"
 ```
 
@@ -45,7 +45,6 @@ kubectl get configmaps
 
 ### Step 5: Encode Passwords to Base64
 ```bash
-echo -n ivolve123 | base64
 echo -n anas123 | base64
 echo -n root123 | base64
 ```
@@ -83,23 +82,10 @@ kubectl describe configmaps mysql-config
 kubectl describe secrets mysql-secret
 ```
 
-### Step 10: View Secret Data (Optional)
-```bash
-kubectl get secret mysql-secret -o yaml
-```
 
 ## Expected Results
-- ConfigMap `mysql-config` created with database name and username
-- Secret `mysql-secret` created with encoded passwords
-- ConfigMap data visible in plain text
-- Secret data encoded in base64 format
-- Both resources available in `ivolve` namespace
+<img width="1183" height="628" alt="image" src="https://github.com/user-attachments/assets/4012dac6-5f42-4898-9143-afc88ff375a8" />
 
-## Notes
-- ConfigMaps store non-sensitive configuration data
-- Secrets store sensitive data like passwords and tokens
-- Secret data is base64 encoded (not encrypted)
-- Both can be mounted as volumes or environment variables in pods
 
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek** 
