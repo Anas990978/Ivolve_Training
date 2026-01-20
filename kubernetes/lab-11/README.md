@@ -67,15 +67,8 @@ kubectl get pods -n ivolve
 ```
 
 ## Expected Results
-- Resource quota `lab-11-quota` created with limit of 2 pods
-- First two pods (`test1`, `test2`) created successfully
-- Third pod (`test3`) fails to create due to quota exceeded
-- Error message: "exceeded quota: lab-11-quota"
-
-## Notes
-- Resource quotas enforce limits on resource consumption per namespace
-- Quotas can limit pods, CPU, memory, storage, and other resources
-- Pods exceeding quota limits will not be scheduled
+<img width="902" height="266" alt="image" src="https://github.com/user-attachments/assets/794386f1-a900-43d1-9887-89ed73e7ac26" />
+<img width="1361" height="516" alt="image" src="https://github.com/user-attachments/assets/0836f309-dcef-4bdd-8bf4-a3c386b62b2b" />
 
 ## Author
-**Anas** - iVolve Training Labs
+**Anas Tarek**
