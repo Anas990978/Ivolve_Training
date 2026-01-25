@@ -92,8 +92,10 @@ kubectl describe pvc app-logs-pvc -n ivolve
 ```
 
 ## Expected Results
-<img width="902" height="266" alt="image" src="https://github.com/user-attachments/assets/794386f1-a900-43d1-9887-89ed73e7ac26" />
-<img width="1361" height="516" alt="image" src="https://github.com/user-attachments/assets/0836f309-dcef-4bdd-8bf4-a3c386b62b2b" />
+<img width="729" height="90" alt="image" src="https://github.com/user-attachments/assets/ca0e3e73-e9a4-4100-99e0-340d34442cae" />
+<img width="1364" height="331" alt="image" src="https://github.com/user-attachments/assets/5eac58ae-1c48-4ca8-b432-a13fdf815bdb" />
+<img width="872" height="352" alt="image" src="https://github.com/user-attachments/assets/55eb782e-6d9b-40e9-8130-5d54b8344493" />
+<img width="1363" height="484" alt="image" src="https://github.com/user-attachments/assets/9d8a5edd-2b6f-4bd1-84cc-ee1c04a4517f" />
 
 ## Author
 **Anas Tarek**
