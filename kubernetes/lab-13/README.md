@@ -18,6 +18,10 @@ minikube start
 ### Step 2: Access Minikube Node (Optional)
 ```bash
 minikube ssh
+sudo mkdir -p /mnt/app-logs
+sudo chmod 777 /mnt/app-logs
+exit
+
 ```
 
 ### Step 3: Create Persistent Volume
