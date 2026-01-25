@@ -82,31 +82,29 @@ kubectl apply -f mysql-headless-service.yaml
 kubectl apply -f mysql-statefulset.yaml
 ```
 
-### Step 6: Remove Node Taint (if needed)
-```bash
-kubectl taint node minikube node=worker:NoSchedule-
-```
-
-### Step 7: Verify Deployment
+### Step 6: Verify Deployment
 ```bash
 kubectl get all -n ivolve
 kubectl get statefulsets.apps -n ivolve
 kubectl get pods -n ivolve
 ```
 
-### Step 8: Check PVC Creation
-```bash
-kubectl get pvc -n ivolve
-```
-
-### Step 9: Connect to MySQL Database
+### Step 7: Connect to MySQL Database as user
 ```bash
 kubectl exec -it mysql-statefulset-0 -n ivolve -- mysql -u anas -panas123
 ```
+### Step 8: Connect to MySQL Database as root
+```bash
+kubectl exec -it mysql-statefulset-0 -n ivolve -- mysql -u root -proot123
+```
 
 ## Expected Results
-<img width="902" height="266" alt="image" src="https://github.com/user-attachments/assets/794386f1-a900-43d1-9887-89ed73e7ac26" />
-<img width="1361" height="516" alt="image" src="https://github.com/user-attachments/assets/0836f309-dcef-4bdd-8bf4-a3c386b62b2b" />
+<img width="887" height="79" alt="image" src="https://github.com/user-attachments/assets/d8432df9-c925-489d-bfda-d9030a3fce86" />
+<img width="1359" height="499" alt="image" src="https://github.com/user-attachments/assets/fcd392b8-a02c-4a0b-a7c7-9af2f43cad0b" />
+<img width="792" height="252" alt="image" src="https://github.com/user-attachments/assets/9a722ced-5ef6-4b4c-869e-6a966d443d0a" />
+<img width="1096" height="294" alt="image" src="https://github.com/user-attachments/assets/ca0af6f6-f7d7-44ea-bb5a-a1ccd18d3fab" />
+<img width="1128" height="284" alt="image" src="https://github.com/user-attachments/assets/a0db6325-c0f1-463c-a583-873f529db99d" />
+
 
 ## Author
 **Anas Tarek**
