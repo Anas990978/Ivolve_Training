@@ -81,8 +81,9 @@ kubectl exec -it mysql-statefulset-0 -n ivolve -- mysql -u anas22 -panas12344 iv
 ```
 
 ## Expected Results
-<img width="902" height="266" alt="image" src="https://github.com/user-attachments/assets/794386f1-a900-43d1-9887-89ed73e7ac26" />
-<img width="1361" height="516" alt="image" src="https://github.com/user-attachments/assets/0836f309-dcef-4bdd-8bf4-a3c386b62b2b" />
+<img width="1920" height="1080" alt="Screenshot (2078)" src="https://github.com/user-attachments/assets/0070d761-c41b-42cc-9497-ba5be18f9cbb" />
+<img width="1096" height="96" alt="image" src="https://github.com/user-attachments/assets/f3ba06c6-d3f0-405c-8f93-f885029a49e5" />
+
 
 ## Author
 **Anas Tarek**
