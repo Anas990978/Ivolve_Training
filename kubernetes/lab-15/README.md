@@ -28,9 +28,9 @@ docker login -u anas587
 ```bash
 kubectl create secret docker-registry dockerhub-secret \
   --docker-server=https://index.docker.io/v1/ \
-  --docker-username=anas587 \
-  --docker-password=Anas_1914 \
-  --docker-email=anastarek10777@gmail.com \
+  --docker-username=user_name \
+  --docker-password=password \
+  --docker-email=email \
   -n ivolve
 ```
 
@@ -139,8 +139,8 @@ kubectl get pvc -n ivolve
 ```
 
 ## Expected Results
-<img width="902" height="266" alt="image" src="https://github.com/user-attachments/assets/794386f1-a900-43d1-9887-89ed73e7ac26" />
-<img width="1361" height="516" alt="image" src="https://github.com/user-attachments/assets/0836f309-dcef-4bdd-8bf4-a3c386b62b2b" />
+<img width="1359" height="170" alt="image" src="https://github.com/user-attachments/assets/d090889f-8a03-4de2-a0ec-8cf1b4742e01" />
+
 
 ## Author
 **Anas Tarek**
