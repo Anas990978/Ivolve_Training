@@ -140,6 +140,7 @@ kubectl get pvc -n ivolve
 
 ## Expected Results
 <img width="1359" height="170" alt="image" src="https://github.com/user-attachments/assets/d090889f-8a03-4de2-a0ec-8cf1b4742e01" />
+<img width="1277" height="223" alt="image" src="https://github.com/user-attachments/assets/20998627-924b-4b56-84bc-57818fa274e2" />
 
 
 ## Author
