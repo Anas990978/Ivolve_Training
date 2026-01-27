@@ -58,23 +58,17 @@ kubectl apply -f nodejs-deployment.yaml
 
 ### Step 5: Verify Resource Configuration
 ```bash
-kubectl describe pod <pod-name> -n ivolve
+kubectl describe pod nodejs-app-8695df9d44-8phms -n ivolve
 ```
 
 ### Step 6: Monitor Real-time Resource Usage
 ```bash
-kubectl top pod <pod-name> -n ivolve
-```
-
-### Step 7: Check All Pods Resource Usage
-```bash
-kubectl get pods -n ivolve
-kubectl top pods -n ivolve
+kubectl top pod nodejs-app-8695df9d44-8phms -n ivolve
 ```
 
 ## Expected Results
-<img width="902" height="266" alt="image" src="https://github.com/user-attachments/assets/794386f1-a900-43d1-9887-89ed73e7ac26" />
-<img width="1361" height="516" alt="image" src="https://github.com/user-attachments/assets/0836f309-dcef-4bdd-8bf4-a3c386b62b2b" />
+<img width="1224" height="471" alt="image" src="https://github.com/user-attachments/assets/1cda4a77-4503-4d5a-86d7-f1d9b3116b75" />
+<img width="954" height="73" alt="image" src="https://github.com/user-attachments/assets/77bcdd6f-d91e-49f3-8dde-f96a63c5e10c" />
 
 ## Author
 **Anas Tarek**
