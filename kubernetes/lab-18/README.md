@@ -63,8 +63,8 @@ kubectl describe networkpolicy allow-app-to-mysql -n ivolve
 ```
 
 ## Expected Results
-<img width="902" height="266" alt="image" src="https://github.com/user-attachments/assets/794386f1-a900-43d1-9887-89ed73e7ac26" />
-<img width="1361" height="516" alt="image" src="https://github.com/user-attachments/assets/0836f309-dcef-4bdd-8bf4-a3c386b62b2b" />
+<img width="1036" height="585" alt="image" src="https://github.com/user-attachments/assets/a95af68e-b9b0-470b-804c-37b1991eedf9" />
+<img width="1169" height="255" alt="image" src="https://github.com/user-attachments/assets/b1932895-4a32-405a-beb3-3c19e548d33f" />
 
 ## Author
 **Anas Tarek**
