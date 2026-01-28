@@ -102,8 +102,7 @@ curl http://192.168.58.2:9100/metrics
 ```
 
 ## Expected Results
-<img width="902" height="266" alt="image" src="https://github.com/user-attachments/assets/794386f1-a900-43d1-9887-89ed73e7ac26" />
-<img width="1361" height="516" alt="image" src="https://github.com/user-attachments/assets/0836f309-dcef-4bdd-8bf4-a3c386b62b2b" />
+<img width="1363" height="635" alt="image" src="https://github.com/user-attachments/assets/595e6827-0899-4ca1-aaa6-fba941a00590" />
 
 ## Author
 **Anas Tarek**
