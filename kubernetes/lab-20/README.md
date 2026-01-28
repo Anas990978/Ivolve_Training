@@ -79,8 +79,9 @@ kubectl auth can-i delete pods --as=system:serviceaccount:ivolve:jenkins-sa -n i
 ```
 
 ## Expected Results
-<img width="902" height="266" alt="image" src="https://github.com/user-attachments/assets/794386f1-a900-43d1-9887-89ed73e7ac26" />
-<img width="1361" height="516" alt="image" src="https://github.com/user-attachments/assets/0836f309-dcef-4bdd-8bf4-a3c386b62b2b" />
+<img width="1361" height="609" alt="image" src="https://github.com/user-attachments/assets/5e2a4222-f31b-4e7e-9059-c8ce11456e9e" />
+<img width="1351" height="648" alt="image" src="https://github.com/user-attachments/assets/ba090647-e5c3-4bec-8b5c-998cbd2caadf" />
+<img width="1239" height="101" alt="image" src="https://github.com/user-attachments/assets/f197c6cc-19a4-4d81-bb44-98edae2265d0" />
 
 ## Author
 **Anas Tarek**
