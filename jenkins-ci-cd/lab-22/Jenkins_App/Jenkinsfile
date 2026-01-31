@@ -54,7 +54,6 @@ pipeline {
                     sh '''
                         cd ../K8s_App
                         kubectl apply -f $DEPLOYMENT_FILE -n ivolve --server=$API_SERVER --token=$TOKEN --insecure-skip-tls-verify=true
-                        kubectl rollout status deployment/nodejs-app -n ivolve --server=$API_SERVER --token=$TOKEN --insecure-skip-tls-verify=true
                     '''
                 }
             }
