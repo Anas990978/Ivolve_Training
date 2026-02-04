@@ -50,7 +50,7 @@ pipeline {
             steps {
                 withCredentials([
                     string(credentialsId: 'ServiceAccount-Token', variable: 'TOKEN'),
-                    string(credentialsId: 'API-Server', variable: 'API_SERVER')
+                    string(credentialsId: 'API Server', variable: 'API_SERVER')
                 ]) {
                     sh '''
                         cd jenkins-ci-cd/lab-22/K8s_App
