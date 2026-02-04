@@ -44,7 +44,7 @@ pipeline {
             steps {
                 sh '''
                 cd jenkins-ci-cd/lab-22/K8s_App
-                sed -i 's|image: .*|image: $IMAGE_NAME:$BUILD_NUMBER|' $DEPLOYMENT_FILE
+                sed -i "s|image: .*|image: $IMAGE_NAME:$BUILD_NUMBER|" $DEPLOYMENT_FILE
                 '''
             }
         }
