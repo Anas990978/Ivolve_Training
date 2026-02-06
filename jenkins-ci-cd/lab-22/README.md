@@ -84,11 +84,10 @@ kubectl apply -f $DEPLOYMENT_FILE -n ivolve --server=$API_SERVER --token=$TOKEN 
 # Check deployment status
 kubectl get pods -n ivolve
 kubectl get deployment nodejs-app -n ivolve
-<<<<<<< Updated upstream
+
 ```
 =======
 
->>>>>>> Stashed changes
 
 ## Results
 - ✅ Automated CI/CD pipeline
@@ -104,6 +103,3 @@ kubectl get deployment nodejs-app -n ivolve
 
 ## Author
 **Anas Tarek** 
-=======
-## Security Features
->>>>>>> Stashed changes
