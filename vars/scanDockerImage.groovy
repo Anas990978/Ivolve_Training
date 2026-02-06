@@ -1,3 +1,3 @@
 def call(String imageName) {
-    sh "trivy image ${imageName}:${env.BUILD_NUMBER}"
+    sh "trivy image --severity HIGH,CRITICAL --timeout 5m ${imageName}:${env.BUILD_NUMBER}"
 }
