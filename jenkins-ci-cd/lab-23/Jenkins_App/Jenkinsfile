@@ -1,4 +1,4 @@
-@library('shared-lib')
+@Library('shared-lib') _
 
 pipeline {
     agent any
@@ -8,11 +8,17 @@ pipeline {
         DockerHub_Credentials_ID ='DockerHub'
         Token_Credentials_ID = 'ServiceAccount-Token'
         APIServer_Credentials_ID = 'API Server'
+        SonarQube_Token_ID = 'SONAR_TOKEN'
     }
     stages {
         stage('Build and Test') {
             steps {
                 buildApp()
+            }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                sonarQubeAnalysis(SonarQube_Token_ID)
             }
         }
         
@@ -21,6 +27,12 @@ pipeline {
                 buildAndpushImage(IMAGE_NAME, DockerHub_Credentials_ID)
             }
         }
+        stage('Image Security Scan') {
+             steps {
+                 scanDockerImage(IMAGE_NAME)
+             }
+        }
+
         stage('Deploy to Kubernetes') {
             steps {
                 deployToK8s(IMAGE_NAME, DEPLOYMENT_FILE, APIServer_Credentials_ID, Token_Credentials_ID)
