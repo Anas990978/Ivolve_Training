@@ -44,9 +44,9 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                 
+                dir("${WORK_DIR}") {
                     deployToK8s(IMAGE_NAME, DEPLOYMENT_FILE, APIServer_Credentials_ID, Token_Credentials_ID)
-                
+                }
             }
         }
     }
