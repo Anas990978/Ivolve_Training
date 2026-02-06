@@ -9,33 +9,42 @@ pipeline {
         Token_Credentials_ID = 'ServiceAccount-Token'
         APIServer_Credentials_ID = 'API Server'
         SonarQube_Token_ID = 'SONAR_TOKEN'
+        WORK_DIR = 'jenkins-ci-cd/lab-23/Jenkins_App'
     }
     stages {
         stage('Build and Test') {
             steps {
-                buildApp()
+                sh "cd ${WORK_DIR} && mvn test && mvn package"
             }
         }
         stage('SonarQube Analysis') {
             steps {
-                sonarQubeAnalysis(SonarQube_Token_ID)
+                dir("${WORK_DIR}") {
+                    sonarQubeAnalysis(SonarQube_Token_ID)
+                }
             }
         }
         
         stage('Docker Build and Push') {
             steps {
-                buildAndpushImage(IMAGE_NAME, DockerHub_Credentials_ID)
+                dir("${WORK_DIR}") {
+                    buildAndpushImage(IMAGE_NAME, DockerHub_Credentials_ID)
+                }
             }
         }
         stage('Image Security Scan') {
              steps {
-                 scanDockerImage(IMAGE_NAME)
+                 dir("${WORK_DIR}") {
+                     scanDockerImage(IMAGE_NAME)
+                 }
              }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                deployToK8s(IMAGE_NAME, DEPLOYMENT_FILE, APIServer_Credentials_ID, Token_Credentials_ID)
+                dir("${WORK_DIR}") {
+                    deployToK8s(IMAGE_NAME, DEPLOYMENT_FILE, APIServer_Credentials_ID, Token_Credentials_ID)
+                }
             }
         }
     }
