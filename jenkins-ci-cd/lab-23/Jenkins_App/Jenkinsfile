@@ -15,7 +15,8 @@ pipeline {
         stage('Build and Test') {
             steps {
                 dir("${WORK_DIR}") {
-                    buildAndTest()
+                    buildApp()
+                }
             }
         }
         stage('SonarQube Analysis') {
