@@ -116,7 +116,7 @@ sudo chmod 755 /home/jenkins/agent
 - Name: `jenkins-agent-1`
 - Type: Permanent Agent
 - Remote root directory: `/home/jenkins/agent`
-- Labels: `jenkins-agent-1`
+- Labels: `agent-1`
 - Launch method: Launch agent by connecting it to the controller
 
 ### 3. Start the Agent
@@ -159,13 +159,6 @@ Configure the following credentials in Jenkins:
    - Project Repository: `https://github.com/YOUR_USERNAME/YOUR_REPO.git`
    - Library Path: (leave empty)
 
-## Running the Pipeline
-
-1. Create a new Pipeline job in Jenkins
-2. Configure SCM:
-   - Repository URL: Your GitHub repository
-   - Script Path: `jenkins-ci-cd/lab-23/Jenkins_App/Jenkinsfile`
-3. Click "Build Now"
 
 ## Pipeline Execution Flow
 
@@ -174,16 +167,6 @@ Start → Build & Test → SonarQube Analysis → Docker Build & Push →
 Security Scan → Deploy to K8s → End
 ```
 
-## Verification
-
-### Check Pipeline Status
-- View build logs in Jenkins console output
-- Verify each stage completes successfully
-
-### Verify Docker Image
-```bash
-docker images | grep kubernets-app-app
-```
 
 ### Verify Kubernetes Deployment
 ```bash
@@ -192,36 +175,13 @@ kubectl get pods
 kubectl get services
 ```
 
-## Troubleshooting
+## Expected Output
+<img width="1859" height="881" alt="Screenshot 2026-02-06 175247" src="https://github.com/user-attachments/assets/d52795bf-8091-41a8-a1e9-73657348f64b" />
+<img width="1491" height="549" alt="Screenshot 2026-02-06 181106" src="https://github.com/user-attachments/assets/8bc39fa6-c2bd-4bb6-a145-e5083501192f" />
+<img width="1676" height="806" alt="Screenshot 2026-02-06 181128" src="https://github.com/user-attachments/assets/d944a66f-bc0e-4e2e-b197-bf67801a6d0a" />
+<img width="1860" height="858" alt="Screenshot 2026-02-06 184125" src="https://github.com/user-attachments/assets/7b28a867-c0d5-4670-9940-d288cdf8b4b3" />
+<img width="1860" height="579" alt="Screenshot 2026-02-06 184144" src="https://github.com/user-attachments/assets/bc63cf14-3a67-4e8a-af17-c568bc0d06af" />
+<img width="1850" height="708" alt="Screenshot 2026-02-07 132525" src="https://github.com/user-attachments/assets/28d6f57d-d66f-42c6-95de-3b6ab8aa2449" />
 
-### Agent Connection Issues
-- Verify agent is online in Jenkins UI
-- Check agent logs: `/home/jenkins/agent/agent.log`
-- Restart agent if needed
-
-### Docker Build Failures
-- Ensure Docker daemon is running
-- Check Dockerfile syntax
-- Verify base image availability
-
-### Kubernetes Deployment Failures
-- Verify kubectl configuration
-- Check service account permissions
-- Validate deployment.yaml syntax
-
-## Best Practices
-
-1. **Use Shared Libraries** - Reusable code across multiple pipelines
-2. **Agent Labels** - Distribute workload across multiple agents
-3. **Credentials Management** - Store sensitive data securely in Jenkins
-4. **Image Tagging** - Use build numbers for traceability
-5. **Security Scanning** - Always scan images before deployment
-6. **Validation** - Test deployments in staging before production
-
-## Conclusion
-
-This lab demonstrates a complete CI/CD pipeline implementation using Jenkins with:
-- Shared libraries for code reusability
-- Jenkins agents for distributed builds
-- Automated testing and security scanning
-- Containerized deployment to Kubernetes
+##Auther
+**Anas Tarek**
