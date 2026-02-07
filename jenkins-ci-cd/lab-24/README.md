@@ -73,5 +73,5 @@ Use a Jenkins slave node to run the pipeline.
 Reference a Shared Library for common CI/CD steps (build, test, deploy).
 
 
-### Auther
+### Author
 **Anas Tarek**
