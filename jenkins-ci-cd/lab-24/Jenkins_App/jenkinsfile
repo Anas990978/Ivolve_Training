@@ -1,6 +1,6 @@
 @Library  ('shared-lib') _
 pipeline {
-    agent (label 'agent-1')
+    agent {label 'agent-1'}
     environment {
         IMAGE_NAME = 'anas587/kubernets-app-app'
         DOCKERHUB_CRED = 'DockerHub'
