@@ -183,6 +183,6 @@ kubectl get services
 <img width="1860" height="579" alt="Screenshot 2026-02-06 184144" src="https://github.com/user-attachments/assets/bc63cf14-3a67-4e8a-af17-c568bc0d06af" />
 <img width="1850" height="708" alt="Screenshot 2026-02-07 132525" src="https://github.com/user-attachments/assets/28d6f57d-d66f-42c6-95de-3b6ab8aa2449" />
 
-##Author## 
+## Author
 
 **Anas Tarek**
