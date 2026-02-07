@@ -72,17 +72,6 @@ Use a Jenkins slave node to run the pipeline.
 
 Reference a Shared Library for common CI/CD steps (build, test, deploy).
 
-4. Pipeline Workflow
-
-For each branch:
-
-Jenkins pulls the latest code.
-
-Builds the Docker image.
-
-Pushes the Docker image to your registry.
-
-Deploys to the corresponding Kubernetes namespace using the deployment YAML.
 
 ### Auther
 **Anas Tarek**
