@@ -218,16 +218,18 @@ pipeline {
 
 
 # Verify deployment file updated
+```
 cat jenkins-ci-cd/lab-25/gitops/deployment.yaml | grep image:
-
+```
 
 # Verify deployment in Kubernetes
+```
 kubectl get pods -n ivolve -o wide
 kubectl get deployment -n ivolve -o yaml | grep image:
 kubectl describe deployment -n ivolve | grep Image
 ```
 
-## Expected Results
+### Expected Results
 <img width="1554" height="739" alt="image" src="https://github.com/user-attachments/assets/2cd913ab-f636-40e4-a8d5-00c2f234bdf9" />
 <img width="1124" height="203" alt="image" src="https://github.com/user-attachments/assets/9a8af5c5-6178-4fc0-adb9-51e78f6dee76" />
 <img width="1839" height="816" alt="image" src="https://github.com/user-attachments/assets/e141b515-92dc-406e-bd3b-a82f63c58082" />
