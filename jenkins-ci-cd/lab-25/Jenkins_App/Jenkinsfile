@@ -5,7 +5,9 @@ pipeline {
         DEPLOYMENT_FILE = 'deployment.yaml'
         WORK_DIR = 'jenkins-ci-cd/lab-25/Jenkins_App'
         DEPLOYMENT_DIR = 'jenkins-ci-cd/lab-25/gitops'
-
+        GIT_CREDENTIALS_ID = 'GitHub'  
+        ARGOCD_REPO = 'https://github.com/Anas990978/Ivolve_Training.git'
+        ARGOCD_BRANCH = 'main'
     }
     stages {
         stage('run unit tests') {
@@ -23,7 +25,6 @@ pipeline {
                 }
             }
         }
-        
         
         stage('Docker Build') {
             steps {
@@ -49,13 +50,38 @@ pipeline {
                 sh 'docker rmi $IMAGE_NAME:$BUILD_NUMBER || true'
             }
         }
-        stage('Update Deployment File') {
+        
+        stage('Clone ArgoCD YAML Repo') {
             steps {
-                dir("${DEPLOYMENT_DIR}") {
-                    sh 'sed -i "s|image: .*|image: $IMAGE_NAME:$BUILD_NUMBER|" $DEPLOYMENT_FILE'
+               
+                sh 'rm -rf argocd-repo'
+                dir('argocd-repo') {
+                    git branch: "${ARGOCD_BRANCH}",
+                        credentialsId: "${GIT_CREDENTIALS_ID}",
+                        url: "${ARGOCD_REPO}"
                 }
             }
         }
+        
+        stage('Update Deployment File and Push') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: GIT_CREDENTIALS_ID, usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
+                    dir("argocd-repo/${DEPLOYMENT_DIR}") {
+                        sh """
+                            git config user.email "jenkins@ci.com"
+                            git config user.name "Jenkins"
+                            sed -i 's|image: .*|image: ${IMAGE_NAME}:${BUILD_NUMBER}|' ${DEPLOYMENT_FILE}
+                            git add ${DEPLOYMENT_FILE}
+                            git commit -m "Update deployment image to ${IMAGE_NAME}:${BUILD_NUMBER} by Jenkins" || echo "No changes to commit"
+                            git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Anas990978/Ivolve_Training.git ${ARGOCD_BRANCH}
+                        """
+                    }
+                }
+            }
+        }
+        
+        
+        /*
         stage('Deploy to Kubernetes') {
             steps {
                 withCredentials([
@@ -68,11 +94,13 @@ pipeline {
                 }
             }
         }
+        */
     }
     post {
         always {
             echo 'Pipeline execution completed'
             sh 'docker logout || true'
+            sh 'rm -rf argocd-repo || true'
         }
         success {
             echo 'Pipeline executed successfully!'
