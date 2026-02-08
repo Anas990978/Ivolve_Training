@@ -1,0 +1,84 @@
+pipeline {
+    agent any
+    environment {
+        IMAGE_NAME = 'anas587/kubernets-app-app'
+        DEPLOYMENT_FILE = 'deployment.yaml'
+        WORK_DIR = 'jenkins-ci-cd/lab-25/Jenkins_App'
+        DEPLOYMENT_DIR = 'jenkins-ci-cd/lab-25/gitops'
+
+    }
+    stages {
+        stage('run unit tests') {
+            steps {
+                sh 'echo "Running unit tests..."'
+                dir("${WORK_DIR}") {
+                    sh 'mvn test'
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                dir("${WORK_DIR}") {
+                    sh 'mvn package'
+                }
+            }
+        }
+        
+        
+        stage('Docker Build') {
+            steps {
+                dir("${WORK_DIR}") {
+                    sh 'docker build -t $IMAGE_NAME:$BUILD_NUMBER .'
+                }
+            }
+        }
+        stage('Docker Push') {
+            steps {
+                timeout(time: 10, unit: 'MINUTES') {
+                    withCredentials([usernamePassword(credentialsId: 'DockerHub', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                        sh '''
+                            docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+                            docker push $IMAGE_NAME:$BUILD_NUMBER
+                        '''
+                    }
+                }
+            }
+        }        
+        stage('delete image from local') {
+            steps {
+                sh 'docker rmi $IMAGE_NAME:$BUILD_NUMBER || true'
+            }
+        }
+        stage('Update Deployment File') {
+            steps {
+                dir("${DEPLOYMENT_DIR}") {
+                    sh 'sed -i "s|image: .*|image: $IMAGE_NAME:$BUILD_NUMBER|" $DEPLOYMENT_FILE'
+                }
+            }
+        }
+        stage('Deploy to Kubernetes') {
+            steps {
+                withCredentials([
+                    string(credentialsId: 'ServiceAccount-Token', variable: 'TOKEN'),
+                    string(credentialsId: 'API Server', variable: 'API_SERVER')
+                ]) {
+                    dir("${DEPLOYMENT_DIR}") {
+                        sh 'kubectl apply -f $DEPLOYMENT_FILE -n ivolve --server=$API_SERVER --token=$TOKEN --insecure-skip-tls-verify=true --validate=false'
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline execution completed'
+            sh 'docker logout || true'
+        }
+        success {
+            echo 'Pipeline executed successfully!'
+        }
+        failure {
+            echo 'Pipeline execution failed!'
+        }
+    }
+}
