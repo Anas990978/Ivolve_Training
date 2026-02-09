@@ -46,8 +46,8 @@ ansible -i inventory.ini local -a "df -h"
 ```
 
 ## Expected Output
-- Successful ping response from the managed node.
-- Disk usage details returned by `df -h`.
+<img width="1005" height="607" alt="image" src="https://github.com/user-attachments/assets/4e14405e-1b9a-4a0b-9be5-d00eb6331523" />
+<img width="1332" height="202" alt="image" src="https://github.com/user-attachments/assets/aca08d9b-0a2f-4bc7-989d-b5293f9442ad" />
 
 ## Author
 **Anas Tarek**
