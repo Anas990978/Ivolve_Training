@@ -23,9 +23,9 @@ ansible-playbook -i inventory.ini webServer.yaml
 curl http://localhost
 ```
 
-## Expected Output
-- Playbook completes successfully (Nginx installed and page updated).
-- `curl` returns the customized web page content.
+## Expected Output<img width="1137" height="411" alt="image" src="https://github.com/user-attachments/assets/38aefa48-1451-41dc-ad49-35dfcd177159" />
+
+
 
 ## Author
 **Anas Tarek**
