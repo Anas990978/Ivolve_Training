@@ -1,0 +1,23 @@
+---
+
+- name: Web Server Setup
+  hosts: web
+  become: yes
+  
+  tasks:
+  - name: Install Nginx
+    apt:
+      name: nginx
+      state: present
+      update_cache: yes
+
+  - name: Start and Enable Nginx
+    service:
+      name: nginx
+      state: started
+      enabled: yes
+
+  - name: Create index.html
+    copy:
+      content: "<h1>Welcome to the Web Server</h1>"   
+      dest: /var/www/html/index.html
